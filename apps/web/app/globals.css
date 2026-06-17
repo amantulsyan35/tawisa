@@ -7012,3 +7012,1555 @@ body:has(.empty-wrap) {
   text-underline-offset: 2px;
   cursor: pointer;
 }
+
+/* ─── ACCOUNT PROFILE EXACT PASTED HTML COMPATIBILITY LAYER ─ */
+.account-profile-page {
+  font-family: var(--sans);
+  background: var(--bg2);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100svh;
+}
+
+.account-profile-page button {
+  font-family: var(--sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.account-profile-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.account-profile-page ul {
+  list-style: none;
+}
+
+.account-profile-page .navbar {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.account-profile-page .nav-logo {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent2);
+}
+
+.account-profile-page .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-profile-page .nav-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-pill);
+  background: var(--accent-lt);
+  color: var(--accent2);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.account-profile-page .nav-icon-btn:hover {
+  background: rgba(145,116,170,0.22);
+}
+
+.account-profile-page .nav-icon-btn.active {
+  background: rgba(185,155,204,0.26);
+}
+
+.account-profile-page .nav-icon-btn.hide-mobile {
+  display: none;
+}
+
+.account-profile-page .nav-links {
+  display: none;
+}
+
+.account-profile-page .nav-menu-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.account-profile-page .nav-menu-btn span {
+  display: block;
+  height: 1.5px;
+  background: var(--accent2);
+  border-radius: 2px;
+}
+
+.account-profile-page .nav-menu-btn span:nth-child(1) {
+  width: 22px;
+}
+
+.account-profile-page .nav-menu-btn span:nth-child(2) {
+  width: 14px;
+}
+
+.account-profile-page .nav-menu-btn span:nth-child(3) {
+  width: 18px;
+}
+
+.account-profile-page .page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.account-profile-page .mobile-tabs {
+  display: flex;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.account-profile-page .mobile-tab {
+  flex: 1;
+  padding: 14px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+  background: transparent;
+  position: relative;
+}
+
+.account-profile-page .mobile-tab.active {
+  color: var(--accent2);
+  background: var(--accent-lt);
+}
+
+.account-profile-page .mobile-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--accent2);
+  border-radius: 2px;
+}
+
+.account-profile-page .account-sidebar {
+  display: none;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.account-profile-page .sidebar-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.account-profile-page .sidebar-user {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(160deg,var(--bg2),var(--bg));
+}
+
+.account-profile-page .user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#c9b0dc,#a980c0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(138,107,163,0.3);
+}
+
+.account-profile-page .user-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.account-profile-page .user-phone {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+.account-profile-page .sidebar-nav {
+  padding: 12px 0;
+}
+
+.account-profile-page .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.account-profile-page .nav-item:hover {
+  background: var(--accent-lt);
+  color: var(--accent2);
+}
+
+.account-profile-page .nav-item.active {
+  background: var(--accent-lt);
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+.account-profile-page .nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: var(--accent2);
+  border-radius: 0 2px 2px 0;
+}
+
+.account-profile-page .nav-item svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.account-profile-page .nav-item.active svg {
+  opacity: 1;
+}
+
+.account-profile-page .nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.account-profile-page .nav-item.logout {
+  color: var(--text3);
+}
+
+.account-profile-page .nav-item.logout:hover {
+  color: #b94a4a;
+  background: rgba(185,74,74,0.06);
+}
+
+.account-profile-page .nav-item-button {
+  width: 100%;
+  text-align: left;
+}
+
+.account-profile-page .account-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account-profile-page .section-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+}
+
+.account-profile-page .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-profile-page .section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.account-profile-page .section-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.account-profile-page .section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent2);
+}
+
+.account-profile-page .btn-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border2);
+  color: var(--accent2);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 38px;
+}
+
+.account-profile-page .btn-edit:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+.account-profile-page .form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.account-profile-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account-profile-page .form-group.full {
+  grid-column: 1/-1;
+}
+
+.account-profile-page .form-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.account-profile-page .form-input {
+  padding: 14px 18px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border2);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition),box-shadow var(--transition);
+  min-height: 50px;
+}
+
+.account-profile-page .form-input::placeholder {
+  color: var(--text3);
+}
+
+.account-profile-page .form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(185,155,204,0.14);
+}
+
+.account-profile-page .form-input:disabled {
+  background: var(--bg2);
+  color: var(--text2);
+  cursor: not-allowed;
+}
+
+.account-profile-page .form-select {
+  cursor: pointer;
+}
+
+.account-profile-page .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .form-actions-profile {
+  margin-top: 24px;
+}
+
+.account-profile-page .btn-primary {
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 28px rgba(138,107,163,0.28);
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform var(--transition),box-shadow var(--transition);
+}
+
+.account-profile-page .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 36px rgba(138,107,163,0.38);
+}
+
+.account-profile-page .btn-ghost {
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--accent2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 48px;
+  transition: all var(--transition);
+}
+
+.account-profile-page .btn-ghost:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+.account-profile-page .verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(122,143,92,0.10);
+  border: 1px solid rgba(122,143,92,0.2);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a7a40;
+}
+
+.account-profile-page .info-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-profile-page .info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.account-profile-page .info-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  min-width: 100px;
+  padding-top: 2px;
+}
+
+.account-profile-page .info-value {
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+}
+
+.account-profile-page .info-value.muted {
+  color: var(--text3);
+  font-style: italic;
+}
+
+.account-profile-page .nav-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+}
+
+.account-profile-page .nav-drawer.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-profile-page .drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(52,40,33,0.4);
+  backdrop-filter: blur(4px);
+}
+
+.account-profile-page .drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 320px;
+  background: var(--bg);
+  padding: 72px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: -20px 0 60px rgba(52,40,33,0.15);
+}
+
+.account-profile-page .drawer-item {
+  padding: 14px 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+}
+
+.account-profile-page .drawer-item:hover {
+  color: var(--accent2);
+}
+
+.account-profile-page .drawer-item-account {
+  color: var(--accent2);
+}
+
+.account-profile-page .drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text2);
+}
+
+@media (min-width: 600px) {
+  .account-profile-page .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .account-profile-page .navbar {
+    top: 16px;
+    left: 24px;
+    right: 24px;
+    padding: 16px 32px;
+  }
+
+  .account-profile-page .nav-menu-btn {
+    display: none;
+  }
+
+  .account-profile-page .nav-icon-btn.hide-mobile {
+    display: flex;
+  }
+
+  .account-profile-page .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .account-profile-page .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text2);
+    transition: color var(--transition);
+  }
+
+  .account-profile-page .nav-links a:hover {
+    color: var(--accent2);
+  }
+
+  .account-profile-page .page-wrap {
+    padding: 108px 80px 96px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .account-profile-page .mobile-tabs {
+    display: none;
+  }
+
+  .account-profile-page .account-sidebar {
+    display: block;
+    position: sticky;
+    top: 100px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .account-profile-page .page-wrap {
+    padding: 108px 120px 96px;
+  }
+}
+
+/* ─── ACCOUNT ORDERS EXACT PASTED HTML COMPATIBILITY LAYER ─ */
+.account-orders-page .order-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.account-orders-page .order-tab {
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.account-orders-page .order-tab.active {
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(138,107,163,0.22);
+}
+
+.account-orders-page .order-tab:hover:not(.active) {
+  background: var(--accent-lt);
+  color: var(--accent2);
+}
+
+.account-orders-page .order-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: box-shadow var(--transition);
+}
+
+.account-orders-page .order-card:last-child {
+  margin-bottom: 0;
+}
+
+.account-orders-page .order-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.account-orders-page .order-header {
+  padding: 16px 20px;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.account-orders-page .order-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.account-orders-page .order-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+
+.account-orders-page .order-date {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.account-orders-page .order-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.account-orders-page .status-delivered {
+  background: rgba(122,143,92,0.12);
+  color: #5a7a40;
+  border: 1px solid rgba(122,143,92,0.2);
+}
+
+.account-orders-page .status-shipped {
+  background: rgba(70,130,200,0.10);
+  color: #2c6aad;
+  border: 1px solid rgba(70,130,200,0.2);
+}
+
+.account-orders-page .status-processing {
+  background: rgba(200,160,60,0.12);
+  color: #8a6820;
+  border: 1px solid rgba(200,160,60,0.2);
+}
+
+.account-orders-page .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.account-orders-page .order-body {
+  padding: 16px 20px;
+}
+
+.account-orders-page .order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.account-orders-page .order-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.account-orders-page .order-item-img {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-sm);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-orders-page .item-bg-1 {
+  background: linear-gradient(135deg,#fdf6f2,#f7e5d8);
+}
+
+.account-orders-page .item-bg-2 {
+  background: linear-gradient(135deg,#faf5ff,#ede0f5);
+}
+
+.account-orders-page .item-bg-3 {
+  background: linear-gradient(135deg,#fef8f4,#f8ece2);
+}
+
+.account-orders-page .mini-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,#e4c4b0,#b99bcc,#8a6ba3) border-box;
+}
+
+.account-orders-page .mini-gem {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#c9b0dc,#a980c0,#7a5898);
+}
+
+.account-orders-page .mini-earring {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.account-orders-page .mini-hook {
+  width: 1.5px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.account-orders-page .mini-drop {
+  width: 8px;
+  height: 12px;
+  border-radius: 50% 50% 46% 54%/40% 40% 60% 60%;
+  background: linear-gradient(160deg,#d8c0ec,#b090d0);
+}
+
+.account-orders-page .mini-earring-offset {
+  margin-top: 6px;
+}
+
+.account-orders-page .order-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-orders-page .order-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.account-orders-page .order-item-meta {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.account-orders-page .order-item-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.account-orders-page .order-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.account-orders-page .order-total {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.account-orders-page .order-total span {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.account-orders-page .order-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.account-orders-page .btn-sm {
+  padding: 9px 18px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 36px;
+  transition: all var(--transition);
+}
+
+.account-orders-page .btn-sm-ghost {
+  border: 1px solid var(--border2);
+  color: var(--accent2);
+  background: transparent;
+}
+
+.account-orders-page .btn-sm-ghost:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+.account-orders-page .btn-sm-primary {
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(138,107,163,0.22);
+}
+
+.account-orders-page .btn-sm-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(138,107,163,0.30);
+}
+
+/* ─── ACCOUNT ORDER PAGE CASCADE LOCK ───────────────────── */
+.account-profile-page .order-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .order-tab {
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.account-profile-page .order-tab.active {
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(138,107,163,0.22);
+}
+
+.account-profile-page .order-tab:hover:not(.active) {
+  background: var(--accent-lt);
+  color: var(--accent2);
+}
+
+.account-profile-page .order-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: box-shadow var(--transition);
+}
+
+.account-profile-page .order-card:last-child {
+  margin-bottom: 0;
+}
+
+.account-profile-page .order-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.account-profile-page .order-header {
+  padding: 16px 20px;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .order-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .order-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+
+.account-profile-page .order-date {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.account-profile-page .order-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.account-profile-page .status-delivered {
+  background: rgba(122,143,92,0.12);
+  color: #5a7a40;
+  border: 1px solid rgba(122,143,92,0.2);
+}
+
+.account-profile-page .status-shipped {
+  background: rgba(70,130,200,0.10);
+  color: #2c6aad;
+  border: 1px solid rgba(70,130,200,0.2);
+}
+
+.account-profile-page .status-processing {
+  background: rgba(200,160,60,0.12);
+  color: #8a6820;
+  border: 1px solid rgba(200,160,60,0.2);
+}
+
+.account-profile-page .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.account-profile-page .order-body {
+  padding: 16px 20px;
+}
+
+.account-profile-page .order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.account-profile-page .order-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.account-profile-page .order-item-img {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-sm);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-profile-page .item-bg-1 {
+  background: linear-gradient(135deg,#fdf6f2,#f7e5d8);
+}
+
+.account-profile-page .item-bg-2 {
+  background: linear-gradient(135deg,#faf5ff,#ede0f5);
+}
+
+.account-profile-page .item-bg-3 {
+  background: linear-gradient(135deg,#fef8f4,#f8ece2);
+}
+
+.account-profile-page .mini-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,#e4c4b0,#b99bcc,#8a6ba3) border-box;
+}
+
+.account-profile-page .mini-gem {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#c9b0dc,#a980c0,#7a5898);
+}
+
+.account-profile-page .mini-earring {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.account-profile-page .mini-hook {
+  width: 1.5px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.account-profile-page .mini-drop {
+  width: 8px;
+  height: 12px;
+  border-radius: 50% 50% 46% 54%/40% 40% 60% 60%;
+  background: linear-gradient(160deg,#d8c0ec,#b090d0);
+}
+
+.account-profile-page .mini-earring-offset {
+  margin-top: 6px;
+}
+
+.account-profile-page .order-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-profile-page .order-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.account-profile-page .order-item-meta {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.account-profile-page .order-item-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.account-profile-page .order-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .order-total {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.account-profile-page .order-total span {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.account-profile-page .order-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.account-profile-page .btn-sm {
+  padding: 9px 18px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 36px;
+  transition: all var(--transition);
+}
+
+.account-profile-page .btn-sm-ghost {
+  border: 1px solid var(--border2);
+  color: var(--accent2);
+  background: transparent;
+}
+
+.account-profile-page .btn-sm-ghost:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+.account-profile-page .btn-sm-primary {
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(138,107,163,0.22);
+}
+
+.account-profile-page .btn-sm-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(138,107,163,0.30);
+}
+
+/* ─── ACCOUNT ADDRESSES EXACT PASTED HTML COMPATIBILITY LAYER ─ */
+.account-profile-page .btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  min-height: 40px;
+  box-shadow: 0 6px 18px rgba(138,107,163,0.22);
+  transition: transform var(--transition),box-shadow var(--transition);
+}
+
+.account-profile-page .btn-add:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(138,107,163,0.30);
+}
+
+.account-profile-page .address-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.account-profile-page .address-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  position: relative;
+  transition: border-color var(--transition),box-shadow var(--transition);
+  cursor: pointer;
+  background: #fff;
+}
+
+.account-profile-page .address-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.account-profile-page .address-card.default {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 1px var(--accent2);
+}
+
+.account-profile-page .address-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.account-profile-page .address-type-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-profile-page .address-type {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+
+.account-profile-page .default-badge {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--accent-lt);
+  border: 1px solid var(--border2);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+
+.account-profile-page .address-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.account-profile-page .addr-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text3);
+  transition: all var(--transition);
+  background: transparent;
+}
+
+.account-profile-page .addr-btn:hover {
+  background: var(--accent-lt);
+  color: var(--accent2);
+  border-color: var(--accent);
+}
+
+.account-profile-page .addr-btn.delete:hover {
+  background: rgba(185,74,74,0.08);
+  color: #b94a4a;
+  border-color: rgba(185,74,74,0.3);
+}
+
+.account-profile-page .address-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.account-profile-page .address-line {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.account-profile-page .address-phone {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+.account-profile-page .address-card-add {
+  border: 1.5px dashed var(--border2);
+  border-radius: var(--r-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--transition);
+  min-height: 140px;
+  background: transparent;
+}
+
+.account-profile-page .address-card-add:hover {
+  border-color: var(--accent);
+  background: var(--accent-lt);
+}
+
+.account-profile-page .add-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent2);
+  transition: all var(--transition);
+}
+
+.account-profile-page .address-card-add:hover .add-icon {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+.account-profile-page .add-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.account-profile-page .address-card-add:hover .add-label {
+  color: var(--accent2);
+}
+
+.account-profile-page .modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(50,38,59,0.5);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.account-profile-page .modal-overlay.open {
+  display: flex;
+}
+
+.account-profile-page .modal {
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow2);
+  max-height: 90svh;
+  overflow-y: auto;
+}
+
+.account-profile-page .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-profile-page .modal-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.account-profile-page .modal-title em {
+  font-style: italic;
+  color: var(--accent2);
+}
+
+.account-profile-page .modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text3);
+  transition: all var(--transition);
+}
+
+.account-profile-page .modal-close:hover {
+  background: var(--accent-lt);
+  color: var(--accent2);
+}
+
+.account-profile-page .address-type-block {
+  margin-bottom: 18px;
+}
+
+.account-profile-page .address-type-label {
+  margin-bottom: 10px;
+}
+
+.account-profile-page .address-type-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.account-profile-page .type-chip {
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  background: transparent;
+  transition: all var(--transition);
+}
+
+.account-profile-page .type-chip.active {
+  background: var(--accent-lt);
+  color: var(--accent2);
+  border-color: var(--accent);
+}
+
+.account-profile-page .modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.account-profile-page .modal-actions .btn-primary {
+  flex: 1;
+  padding: 14px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(to right,#C9B0DC,#A980C0);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 28px rgba(138,107,163,0.28);
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform var(--transition),box-shadow var(--transition);
+}
+
+.account-profile-page .modal-actions .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 36px rgba(138,107,163,0.38);
+}
+
+.account-profile-page .modal-actions .btn-ghost {
+  padding: 14px 20px;
+  border-radius: var(--r-pill);
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--accent2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 48px;
+  transition: all var(--transition);
+}
+
+.account-profile-page .modal-actions .btn-ghost:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent);
+}
+
+@media (min-width: 480px) {
+  .account-profile-page .modal .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 600px) {
+  .account-profile-page .address-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
