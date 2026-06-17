@@ -1,78 +1,37 @@
 @import "tailwindcss";
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Tailwind v4 Theme */
+@theme {
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-bg2: #f2ebf7;
+  --color-bg3: #e8ddef;
+  --color-accent: #b99bcc;
+  --color-accent2: #8a6ba3;
+  --color-accent-lt: rgba(145, 116, 170, 0.12);
+  --color-glass: rgba(255, 255, 255, 0.72);
+  --color-text: #32263b;
+  --color-text2: #72667d;
+  --color-text3: #a098b0;
+  --color-border: rgba(218, 203, 231, 0.42);
+  --color-border2: rgba(186, 164, 203, 0.34);
+  --color-success: #3d8b5e;
+
+  /* Border Radius */
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 12px 48px rgba(145, 116, 170, 0.1);
+  --shadow-elevated: 0 24px 72px rgba(145, 116, 170, 0.14);
+  --shadow-button: 0 8px 28px rgba(138, 107, 163, 0.28);
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
+/* Base styles */
 body {
-  font-family: var(--font-sans), "Manrope", system-ui, sans-serif;
-  background: #ffffff;
-  color: #32263b;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.font-serif {
-  font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
-}
-
-.font-sans {
-  font-family: var(--font-sans), "Manrope", system-ui, sans-serif;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-:focus-visible {
-  outline: 2px solid #b99bcc;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
-  }
+  font-family: system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
 }

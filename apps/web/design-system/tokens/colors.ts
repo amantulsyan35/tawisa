@@ -1,0 +1,16 @@
+export const colors = {
+  bg: "#FFFFFF",
+  bg2: "#F2EBF7",
+  bg3: "#E8DDEF",
+  glass: "rgba(255,255,255,0.72)",
+  accent: "#B99BCC",
+  accent2: "#8A6BA3",
+  accentLt: "rgba(145,116,170,0.12)",
+  text: "#32263B",
+  text2: "#72667D",
+  text3: "#A098B0",
+  border: "rgba(218,203,231,0.42)",
+  border2: "rgba(186,164,203,0.34)",
+  success: "#3D8B5E",
+  successLt: "rgba(61,139,94,0.10)",
+} as const;

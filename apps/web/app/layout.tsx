@@ -29,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cormorant.variable} ${manrope.variable}`}>
+      <body
+        className={`${cormorant.variable} ${manrope.variable}`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
