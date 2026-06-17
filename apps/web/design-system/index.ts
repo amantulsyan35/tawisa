@@ -1,8 +1,18 @@
 // Tokens
-export { colors } from "./tokens";
+export { colors, motion, radii, shadows, spacing, typography } from "./tokens";
 
 // Components
-export { Button, Badge, ProductCard } from "./components";
+export {
+  Badge,
+  Button,
+  CategoryCard,
+  FeaturedProductCard,
+  IconButton,
+  JewelryIllustration,
+  ProductCard,
+  ReviewCard,
+  SectionHeader,
+} from "./components";
 
 // Icons
 export {
@@ -19,4 +29,5 @@ export {
   InstagramIcon,
   TwitterIcon,
   PinterestIcon,
+  YoutubeIcon,
 } from "./icons";

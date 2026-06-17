@@ -1,3 +1,9 @@
 export { Button } from "./Button";
 export { Badge } from "./Badge";
 export { ProductCard } from "./ProductCard";
+export { CategoryCard } from "./CategoryCard";
+export { FeaturedProductCard } from "./FeaturedProductCard";
+export { IconButton } from "./IconButton";
+export { JewelryIllustration } from "./JewelryIllustration";
+export { ReviewCard } from "./ReviewCard";
+export { SectionHeader } from "./SectionHeader";
