@@ -16,6 +16,7 @@
   --color-border: rgba(218, 203, 231, 0.42);
   --color-border2: rgba(186, 164, 203, 0.34);
   --color-success: #3d8b5e;
+  --color-footer-bg: #1e1828;
 
   /* Border Radius */
   --radius-sm: 16px;
@@ -27,11 +28,137 @@
   --shadow-card: 0 12px 48px rgba(145, 116, 170, 0.1);
   --shadow-elevated: 0 24px 72px rgba(145, 116, 170, 0.14);
   --shadow-button: 0 8px 28px rgba(138, 107, 163, 0.28);
+  --shadow-button-hover: 0 12px 36px rgba(138, 107, 163, 0.38);
 }
 
-/* Base styles */
+/* ─── RESET ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
   background: var(--color-bg);
   color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ─── TYPOGRAPHY ────────────────────────────────────────── */
+.font-serif {
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
+}
+
+/* ─── ACCESSIBILITY ─────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ─── LAYOUT UTILITIES ──────────────────────────────────── */
+.page-container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page-container {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+
+/* Navbar clearance */
+.pt-navbar {
+  padding-top: 100px;
+}
+
+@media (min-width: 1024px) {
+  .pt-navbar {
+    padding-top: 120px;
+  }
+}
+
+/* ─── PRODUCT GRID ──────────────────────────────────────── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .products-grid {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
 }
