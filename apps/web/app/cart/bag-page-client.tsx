@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const navLinks = ["Collections", "For Her", "For Him", "For Kids", "About"] as const;
+const navLinks = [
+  { label: "Collections", href: "/collections" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
+] as const;
 
 const cartItems = [
   {
@@ -126,8 +132,8 @@ export default function BagPageClient() {
         </Link>
         <nav className="nav-links" aria-label="Desktop navigation">
           {navLinks.map((link) => (
-            <Link href={link === "Collections" ? "/collections" : "#"} key={link}>
-              {link}
+            <Link href={link.href} key={link.label}>
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -145,12 +151,12 @@ export default function BagPageClient() {
             <BagIcon />
             <div className="cart-dot" aria-hidden="true" />
           </Link>
-          <button className="nav-icon-btn hide-mobile" aria-label="My Account">
+          <Link href="/account" className="nav-icon-btn hide-mobile" aria-label="My Account">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-          </button>
+          </Link>
           <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
@@ -168,9 +174,9 @@ export default function BagPageClient() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          {[...navLinks, "My Account"].map((link) => (
-            <Link href={link === "Collections" ? "/collections" : "#"} className="drawer-item" key={link} onClick={() => setDrawerOpen(false)}>
-              {link}
+          {[...navLinks, { label: "Wishlist", href: "/wishlist?state=filled" }, { label: "My Account", href: "/account" }].map((link) => (
+            <Link href={link.href} className="drawer-item" key={link.label} onClick={() => setDrawerOpen(false)}>
+              {link.label}
             </Link>
           ))}
         </div>
@@ -233,12 +239,12 @@ export default function BagPageClient() {
                           <GiftIcon active={item.giftActive} />
                           Gift Wrap
                         </button>
-                        <button className="item-action-btn" aria-label={`Move ${item.name} to Wishlist`}>
+                        <Link href="/wishlist?state=filled" className="item-action-btn" aria-label={`Move ${item.name} to Wishlist`}>
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                           </svg>
                           Wishlist
-                        </button>
+                        </Link>
                         <button className="item-action-btn remove" aria-label={`Remove ${item.name} from cart`}>
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <polyline points="3 6 5 6 21 6" />
@@ -333,13 +339,13 @@ export default function BagPageClient() {
               <span className="price-total-label">Total</span>
               <span className="price-total-value">₹21,195</span>
             </div>
-            <button className="btn-primary checkout-btn" aria-label="Proceed to checkout">
+            <Link href="/checkout/address" className="btn-primary checkout-btn" aria-label="Proceed to checkout">
               Proceed to Checkout
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </button>
+            </Link>
             <div className="trust-pills" role="list" aria-label="Trust signals">
               {["Secure Payment", "Easy Returns", "14-Day Policy", "Free Delivery"].map((text, index) => (
                 <div className="trust-pill" role="listitem" key={text}>
@@ -393,7 +399,9 @@ export default function BagPageClient() {
               <ul>
                 {links.map((link) => (
                   <li key={link}>
-                    <Link href={title === "Collections" ? "/collections" : "#"}>{link}</Link>
+                    <Link href={title === "Help" && link === "My Orders" ? "/account/orders" : title === "Shop" || title === "Collections" ? "/collections" : title === "Company" && link === "About TAWISA" ? "/#about" : "/"}>
+                      {link}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -403,19 +411,19 @@ export default function BagPageClient() {
         <div className="footer-bottom">
           <div className="footer-copy">© 2026 TAWISA. All rights reserved.</div>
           <div className="footer-socials" aria-label="Social media">
-            <Link href="#" className="social-btn" aria-label="Instagram">
+            <Link href="/" className="social-btn" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </Link>
-            <Link href="#" className="social-btn" aria-label="Pinterest">
+            <Link href="/" className="social-btn" aria-label="Pinterest">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.58 2.25-.87 3.5-.25 1.04.52 1.89 1.53 1.89 1.84 0 3.08-2.37 3.08-5.17 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.96c-.04.14-.12.17-.28.1-1.03-.48-1.67-1.99-1.67-3.2 0-2.6 1.89-4.99 5.46-4.99 2.86 0 5.09 2.04 5.09 4.77 0 2.84-1.8 5.13-4.28 5.13-.84 0-1.62-.44-1.89-.95l-.51 1.93c-.19.71-.69 1.6-1.02 2.14.77.24 1.58.37 2.42.37 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
               </svg>
             </Link>
-            <Link href="#" className="social-btn" aria-label="YouTube">
+            <Link href="/" className="social-btn" aria-label="YouTube">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
                 <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
@@ -430,13 +438,13 @@ export default function BagPageClient() {
           <div className="sticky-total-label">Total · 4 items</div>
           <div className="sticky-total-value">₹21,195</div>
         </div>
-        <button className="btn-primary sticky-checkout-btn" aria-label="Proceed to checkout">
+        <Link href="/checkout/address" className="btn-primary sticky-checkout-btn" aria-label="Proceed to checkout">
           Checkout
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
-        </button>
+        </Link>
       </div>
     </div>
   );

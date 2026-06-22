@@ -7,7 +7,13 @@ type WishlistPageClientProps = {
   initialState: "empty" | "filled";
 };
 
-const navLinks = ["Collections", "For Her", "For Him", "For Kids", "About"];
+const navLinks = [
+  { label: "Collections", href: "/collections" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
+] as const;
 
 const wishlistItems = [
   {
@@ -196,6 +202,7 @@ function CloseIcon({ size = 14 }: { size?: number }) {
 export default function WishlistPageClient({ initialState }: WishlistPageClientProps) {
   const [items, setItems] = useState(initialState === "filled" ? wishlistItems : wishlistItems.slice(0, 0));
   const [removingItems, setRemovingItems] = useState<Set<string>>(new Set());
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const removeItem = (id: string) => {
     setRemovingItems((current) => new Set(current).add(id));
@@ -217,31 +224,45 @@ export default function WishlistPageClient({ initialState }: WishlistPageClientP
         </Link>
         <nav className="nav-links">
           {navLinks.map((link) => (
-            <a href="#" key={link}>
-              {link}
-            </a>
+            <Link href={link.href} key={link.label}>
+              {link.label}
+            </Link>
           ))}
         </nav>
         <div className="nav-actions">
           <button className="nav-icon-btn" aria-label="Search">
             <SearchIcon />
           </button>
-          <button className="nav-icon-btn active" aria-label="Wishlist" aria-current="page">
+          <Link href="/wishlist?state=filled" className="nav-icon-btn active" aria-label="Wishlist" aria-current="page">
             <HeartIcon />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="Cart">
+          </Link>
+          <Link href="/cart" className="nav-icon-btn hide-mobile" aria-label="Cart">
             <BagIcon />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="My Account">
+          </Link>
+          <Link href="/account" className="nav-icon-btn hide-mobile" aria-label="My Account">
             <UserIcon />
-          </button>
-          <button className="nav-menu-btn" aria-label="Open menu">
+          </Link>
+          <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
             <span />
           </button>
         </div>
       </nav>
+
+      <div className={`nav-drawer ${drawerOpen ? "open" : ""}`} id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <button className="drawer-backdrop" onClick={() => setDrawerOpen(false)} aria-label="Close menu backdrop" />
+        <div className="drawer-panel">
+          <button className="drawer-close" onClick={() => setDrawerOpen(false)} aria-label="Close menu">
+            <CloseIcon size={22} />
+          </button>
+          {[...navLinks, { label: "Bag", href: "/cart" }, { label: "Account", href: "/account" }].map((link) => (
+            <Link href={link.href} className="drawer-item" key={link.label} onClick={() => setDrawerOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {items.length === 0 ? (
         <>
@@ -271,10 +292,10 @@ export default function WishlistPageClient({ initialState }: WishlistPageClientP
             </p>
 
             <div className="empty-actions">
-              <Link href="/" className="btn-primary">
+              <Link href="/collections" className="btn-primary">
                 Explore Collections
               </Link>
-              <button className="btn-ghost">View Lookbook</button>
+              <Link href="/#about" className="btn-ghost">View Lookbook</Link>
             </div>
           </main>
 
@@ -284,12 +305,12 @@ export default function WishlistPageClient({ initialState }: WishlistPageClientP
 
             <div className="category-row" role="list" aria-label="Browse by category">
               {categoryPills.map((category) => (
-                <div className="cat-pill" role="listitem" tabIndex={0} key={category.label}>
+                <Link href="/collections" className="cat-pill" role="listitem" key={category.label}>
                   <div className="cat-pill-icon" aria-hidden="true">
                     {category.icon}
                   </div>
                   <span className="cat-pill-label">{category.label}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -355,13 +376,13 @@ export default function WishlistPageClient({ initialState }: WishlistPageClientP
                         <span className="star-fill">★</span> {item.rating}
                       </span>
                     </div>
-                    <div className="product-name">{item.name}</div>
+                    <Link href="/products/solitaire-glow-ring" className="product-name">{item.name}</Link>
                     <div className="product-pricing">
                       <span className="price-current">{item.currentPrice}</span>
                       <span className="price-original">{item.originalPrice}</span>
                       <span className="price-off">{item.discount}</span>
                     </div>
-                    <button className="btn-add-bag">Add to Bag</button>
+                    <Link href="/cart" className="btn-add-bag">Add to Bag</Link>
                   </div>
                 </article>
               ))}
@@ -369,14 +390,14 @@ export default function WishlistPageClient({ initialState }: WishlistPageClientP
 
             <div className="wishlist-footer">
               <p className="wishlist-footer-text">&quot;Discover more pieces crafted for you&quot;</p>
-              <button className="btn-primary">Continue Shopping</button>
+              <Link href="/collections" className="btn-primary">Continue Shopping</Link>
             </div>
           </main>
 
-          <button className="floating-cart" aria-label="View cart">
+          <Link href="/cart" className="floating-cart" aria-label="View cart">
             <BagIcon size={22} stroke="white" />
             <div className="cart-count">2</div>
-          </button>
+          </Link>
         </>
       )}
     </>

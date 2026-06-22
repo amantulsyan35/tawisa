@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const navLinks = ["Collections", "For Her", "For Him", "For Kids", "About"] as const;
+const navLinks = [
+  { label: "Collections", href: "/collections" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
+] as const;
 const quickFilters = ["All", "Silver", "9K Gold", "Diamond", "Rings", "Earrings", "Necklaces", "Bracelets"] as const;
 const materials = ["Silver", "9K Gold", "Diamond"] as const;
 
@@ -19,6 +25,7 @@ const products = [
     price: "₹8,499",
     originalPrice: "₹10,999",
     off: "23% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-2",
@@ -36,6 +43,7 @@ const products = [
     price: "₹3,299",
     originalPrice: "₹4,500",
     off: "27% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-3",
@@ -59,6 +67,7 @@ const products = [
     price: "₹14,799",
     originalPrice: "₹18,000",
     off: "18% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-4",
@@ -71,6 +80,7 @@ const products = [
     price: "₹11,299",
     originalPrice: "₹14,000",
     off: "19% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-5",
@@ -83,6 +93,7 @@ const products = [
     price: "₹4,799",
     originalPrice: "₹6,200",
     off: "23% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-6",
@@ -95,6 +106,7 @@ const products = [
     price: "₹7,299",
     originalPrice: "₹9,500",
     off: "23% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-7",
@@ -118,6 +130,7 @@ const products = [
     price: "₹9,499",
     originalPrice: "₹12,000",
     off: "21% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     bg: "prod-bg-8",
@@ -130,6 +143,7 @@ const products = [
     price: "₹5,199",
     originalPrice: "₹6,800",
     off: "24% off",
+    href: "/products/solitaire-glow-ring",
   },
 ] as const;
 
@@ -165,8 +179,8 @@ export default function CollectionsPageClient() {
         </Link>
         <nav className="nav-links">
           {navLinks.map((link) => (
-            <Link href={link === "Collections" ? "/collections" : "#"} key={link}>
-              {link}
+            <Link href={link.href} key={link.label}>
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -177,18 +191,18 @@ export default function CollectionsPageClient() {
               <path d="m21 21-4.35-4.35" />
             </svg>
           </button>
-          <button className="nav-icon-btn" aria-label="Wishlist">
+          <Link href="/wishlist?state=filled" className="nav-icon-btn" aria-label="Wishlist">
             <HeartIcon />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="Cart">
+          </Link>
+          <Link href="/cart" className="nav-icon-btn hide-mobile" aria-label="Cart">
             <BagIcon />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="My Account">
+          </Link>
+          <Link href="/account" className="nav-icon-btn hide-mobile" aria-label="My Account">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-          </button>
+          </Link>
           <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
@@ -206,9 +220,9 @@ export default function CollectionsPageClient() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          {[...navLinks, "Account"].map((link) => (
-            <Link href={link === "Collections" ? "/collections" : "#"} className="drawer-item" key={link} onClick={() => setDrawerOpen(false)}>
-              {link}
+          {[...navLinks, { label: "Wishlist", href: "/wishlist?state=filled" }, { label: "Bag", href: "/cart" }, { label: "Account", href: "/account" }].map((link) => (
+            <Link href={link.href} className="drawer-item" key={link.label} onClick={() => setDrawerOpen(false)}>
+              {link.label}
             </Link>
           ))}
         </div>
@@ -340,14 +354,14 @@ export default function CollectionsPageClient() {
           <div className="products-grid" role="list" aria-label="Products">
             {products.map((product) => (
               <article className="product-card" role="listitem" tabIndex={0} key={product.name}>
-                <div className={`product-img-wrap ${product.bg}`}>
+                <Link href={product.href} className={`product-img-wrap ${product.bg}`}>
                   {product.jewel}
-                  <button className="product-wishlist" aria-label="Save to wishlist">
+                  <span className="product-wishlist" aria-label="Save to wishlist">
                     <HeartIcon size={15} />
-                  </button>
+                  </span>
                   {product.badge ? <div className={`product-badge ${product.badgeClass}`}>{product.badge}</div> : null}
-                </div>
-                <div className="product-info">
+                </Link>
+                <Link href={product.href} className="product-info">
                   <div className="product-meta">
                     <span className="product-material">{product.material}</span>
                     <span className="product-dot" />
@@ -361,7 +375,7 @@ export default function CollectionsPageClient() {
                     <span className="price-original">{product.originalPrice}</span>
                     <span className="price-off">{product.off}</span>
                   </div>
-                </div>
+                </Link>
               </article>
             ))}
           </div>
@@ -376,10 +390,10 @@ export default function CollectionsPageClient() {
         </div>
       </div>
 
-      <button className="floating-cart" aria-label="View cart">
+      <Link href="/cart" className="floating-cart" aria-label="View cart">
         <BagIcon size={22} stroke="white" />
         <div className="cart-count">2</div>
-      </button>
+      </Link>
     </div>
   );
 }

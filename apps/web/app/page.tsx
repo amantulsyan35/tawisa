@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   BagIcon,
@@ -11,7 +12,13 @@ import {
   YoutubeIcon,
 } from "@/design-system";
 
-const navLinks = ["Collections", "For Her", "For Him", "For Kids", "About"];
+const navLinks = [
+  { label: "Collections", href: "/collections" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
+] as const;
 
 const products = [
   {
@@ -25,6 +32,7 @@ const products = [
     price: "₹8,499",
     originalPrice: "₹10,999",
     off: "23% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     badge: "Hot",
@@ -42,6 +50,7 @@ const products = [
     price: "₹3,299",
     originalPrice: "₹4,500",
     off: "27% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     badge: "New",
@@ -65,6 +74,7 @@ const products = [
     price: "₹14,799",
     originalPrice: "₹18,000",
     off: "18% off",
+    href: "/products/solitaire-glow-ring",
   },
   {
     badge: "Hot",
@@ -77,6 +87,7 @@ const products = [
     price: "₹11,299",
     originalPrice: "₹14,000",
     off: "19% off",
+    href: "/products/solitaire-glow-ring",
   },
 ];
 
@@ -122,16 +133,15 @@ export default function Home() {
   return (
     <>
       <nav className="navbar" role="navigation" aria-label="Main navigation">
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        <a href="/" className="nav-logo" aria-label="TAWISA Home">
+        <Link href="/" className="nav-logo" aria-label="TAWISA Home">
           TAWISA
-        </a>
+        </Link>
 
         <nav className="nav-links" aria-label="Desktop navigation">
           {navLinks.map((link) => (
-            <a href="#" key={link}>
-              {link}
-            </a>
+            <Link href={link.href} key={link.label}>
+              {link.label}
+            </Link>
           ))}
         </nav>
 
@@ -139,15 +149,15 @@ export default function Home() {
           <button className="nav-icon-btn" aria-label="Search">
             <SearchIcon size={18} />
           </button>
-          <button className="nav-icon-btn" aria-label="Wishlist">
+          <Link href="/wishlist?state=filled" className="nav-icon-btn" aria-label="Wishlist">
             <HeartIcon size={18} />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="Cart">
+          </Link>
+          <Link href="/cart" className="nav-icon-btn hide-mobile" aria-label="Cart">
             <BagIcon size={18} />
-          </button>
-          <button className="nav-icon-btn hide-mobile" aria-label="My Account">
+          </Link>
+          <Link href="/account" className="nav-icon-btn hide-mobile" aria-label="My Account">
             <UserIcon size={18} />
-          </button>
+          </Link>
           <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
@@ -162,10 +172,10 @@ export default function Home() {
           <button className="drawer-close" onClick={() => setDrawerOpen(false)} aria-label="Close menu">
             <CloseIcon size={22} />
           </button>
-          {[...navLinks, "Account"].map((link) => (
-            <a href="#" className="drawer-item" key={link} onClick={() => setDrawerOpen(false)}>
-              {link}
-            </a>
+          {[...navLinks, { label: "Wishlist", href: "/wishlist?state=filled" }, { label: "Bag", href: "/cart" }, { label: "Account", href: "/account" }].map((link) => (
+            <Link href={link.href} className="drawer-item" key={link.label} onClick={() => setDrawerOpen(false)}>
+              {link.label}
+            </Link>
           ))}
         </div>
       </div>
@@ -187,8 +197,8 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <button className="btn-primary">Explore Collections</button>
-            <button className="btn-ghost">View Lookbook</button>
+            <Link href="/collections" className="btn-primary">Explore Collections</Link>
+            <Link href="/#about" className="btn-ghost">View Lookbook</Link>
           </div>
 
           <div className="trust-bar" role="list" aria-label="Brand stats">
@@ -224,7 +234,7 @@ export default function Home() {
         </div>
 
         <div className="category-scroll" role="list" aria-label="Shop by audience">
-          <article className="category-card" role="listitem" tabIndex={0}>
+          <Link href="/collections" className="category-card" role="listitem">
             <div className="category-visual cat-her">
               <div className="jewel-earring-pair" role="img" aria-label="Earrings">
                 <div className="jewel-earring">
@@ -249,9 +259,9 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-          </article>
+          </Link>
 
-          <article className="category-card" role="listitem" tabIndex={0}>
+          <Link href="/collections" className="category-card" role="listitem">
             <div className="category-visual cat-him">
               <div className="jewel-bracelet" role="img" aria-label="Bracelet" />
             </div>
@@ -267,9 +277,9 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-          </article>
+          </Link>
 
-          <article className="category-card" role="listitem" tabIndex={0}>
+          <Link href="/collections" className="category-card" role="listitem">
             <div className="category-visual cat-kids">
               <div className="jewel-pendant" role="img" aria-label="Pendant" />
             </div>
@@ -285,7 +295,7 @@ export default function Home() {
                 </svg>
               </div>
             </div>
-          </article>
+          </Link>
         </div>
       </section>
 
@@ -310,14 +320,14 @@ export default function Home() {
         <div className="products-grid" role="list" aria-label="Featured products">
           {products.map((product) => (
             <article className="product-card" role="listitem" tabIndex={0} key={product.name}>
-              <div className={`product-img-wrap ${product.bgClass}`}>
+              <Link href={product.href} className={`product-img-wrap ${product.bgClass}`}>
                 {product.jewel}
-                <button className="product-wishlist" aria-label="Add to wishlist">
+                <span className="product-wishlist" aria-label="Add to wishlist">
                   <HeartIcon size={16} />
-                </button>
+                </span>
                 <div className={`product-badge ${product.badgeClass}`}>{product.badge}</div>
-              </div>
-              <div className="product-info">
+              </Link>
+              <Link href={product.href} className="product-info">
                 <div className="product-meta">
                   <span className="product-material">{product.material}</span>
                   <span className="product-dot" />
@@ -331,17 +341,17 @@ export default function Home() {
                   <span className="price-original">{product.originalPrice}</span>
                   <span className="price-off">{product.off}</span>
                 </div>
-              </div>
+              </Link>
             </article>
           ))}
         </div>
 
         <div className="center-action">
-          <button className="btn-ghost">View All Products</button>
+          <Link href="/collections" className="btn-ghost">View All Products</Link>
         </div>
       </section>
 
-      <section className="editorial-band" aria-label="Brand statement">
+      <section className="editorial-band" id="about" aria-label="Brand statement">
         <div className="editorial-divider">
           <div className="editorial-gem" />
         </div>
@@ -426,7 +436,9 @@ export default function Home() {
               <ul>
                 {(links as string[]).map((link) => (
                   <li key={link}>
-                    <a href="#">{link}</a>
+                    <Link href={title === "Help" && link === "My Orders" ? "/account/orders" : title === "Shop" || title === "Collections" ? "/collections" : title === "Company" && link === "About TAWISA" ? "/#about" : "/"}>
+                      {link}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -437,27 +449,27 @@ export default function Home() {
         <div className="footer-bottom">
           <div className="footer-copy">© 2026 TAWISA. All rights reserved.</div>
           <div className="footer-socials" aria-label="Social media">
-            <a href="#" className="social-btn" aria-label="Instagram">
+            <Link href="/" className="social-btn" aria-label="Instagram">
               <InstagramIcon size={16} />
-            </a>
-            <a href="#" className="social-btn" aria-label="Pinterest">
+            </Link>
+            <Link href="/" className="social-btn" aria-label="Pinterest">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                 <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.58 2.25-.87 3.5-.25 1.04.52 1.89 1.53 1.89 1.84 0 3.08-2.37 3.08-5.17 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.96c-.04.14-.12.17-.28.1-1.03-.48-1.67-1.99-1.67-3.2 0-2.6 1.89-4.99 5.46-4.99 2.86 0 5.09 2.04 5.09 4.77 0 2.84-1.8 5.13-4.28 5.13-.84 0-1.62-.44-1.89-.95l-.51 1.93c-.19.71-.69 1.6-1.02 2.14.77.24 1.58.37 2.42.37 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
               </svg>
-            </a>
-            <a href="#" className="social-btn" aria-label="YouTube">
+            </Link>
+            <Link href="/" className="social-btn" aria-label="YouTube">
               <YoutubeIcon size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </footer>
 
-      <button className="floating-cart" aria-label="View cart (2 items)">
+      <Link href="/cart" className="floating-cart" aria-label="View cart (2 items)">
         <BagIcon size={22} />
         <div className="cart-count" aria-hidden="true">
           2
         </div>
-      </button>
+      </Link>
     </>
   );
 }

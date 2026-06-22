@@ -220,9 +220,9 @@ export default function AuthPage() {
             </button>
 
             <p className="auth-terms">
-              By continuing, you agree to TAWISA&apos;s <a href="#">Terms of Use</a>
+              By continuing, you agree to TAWISA&apos;s <Link href="/#about">Terms of Use</Link>
               <br />
-              and <a href="#">Privacy Policy</a>
+              and <Link href="/#about">Privacy Policy</Link>
             </p>
           </>
         ) : null}
@@ -325,9 +325,9 @@ export default function AuthPage() {
               You&apos;re <em>In</em>
             </p>
             <p className="success-sub">Welcome to TAWISA. Redirecting you to your collection…</p>
-            <button className="btn-primary success-home-btn" type="button" onClick={() => { window.location.href = "/"; }}>
+            <Link href="/" className="btn-primary success-home-btn">
               Go to Homepage
-            </button>
+            </Link>
           </div>
         ) : null}
       </div>

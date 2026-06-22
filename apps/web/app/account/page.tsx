@@ -5,10 +5,10 @@ import { useState } from "react";
 
 const navLinks = [
   { label: "Collections", href: "/collections" },
-  { label: "For Her", href: "#" },
-  { label: "For Him", href: "#" },
-  { label: "For Kids", href: "#" },
-  { label: "About", href: "#" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
 ];
 
 export default function AccountPage() {
@@ -47,12 +47,12 @@ export default function AccountPage() {
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
           </Link>
-          <button className="nav-icon-btn active hide-mobile" aria-label="My Account" aria-current="page">
+          <Link href="/account" className="nav-icon-btn active hide-mobile" aria-label="My Account" aria-current="page">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-          </button>
+          </Link>
           <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
@@ -83,15 +83,15 @@ export default function AccountPage() {
 
       <div className="page-wrap">
         <div className="mobile-tabs" role="tablist">
-          <button className="mobile-tab active" role="tab" type="button" onClick={() => { window.location.href = "/account"; }}>
+          <Link href="/account" className="mobile-tab active" role="tab">
             Profile
-          </button>
-          <button className="mobile-tab" role="tab" type="button" onClick={() => { window.location.href = "/account/orders"; }}>
+          </Link>
+          <Link href="/account/orders" className="mobile-tab" role="tab">
             Orders
-          </button>
-          <button className="mobile-tab" role="tab" type="button" onClick={() => { window.location.href = "/account/addresses"; }}>
+          </Link>
+          <Link href="/account/addresses" className="mobile-tab" role="tab">
             Addresses
-          </button>
+          </Link>
         </div>
 
         <aside className="account-sidebar" aria-label="Account navigation">

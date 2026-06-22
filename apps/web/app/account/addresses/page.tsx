@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "Collections", href: "/collections" },
-  { label: "For Her", href: "#" },
-  { label: "For Him", href: "#" },
-  { label: "For Kids", href: "#" },
+  { label: "For Her", href: "/collections" },
+  { label: "For Him", href: "/collections" },
+  { label: "For Kids", href: "/collections" },
+  { label: "About", href: "/#about" },
 ];
 
 const addressTypes = ["Home", "Work", "Other"];
@@ -57,12 +58,12 @@ export default function AccountAddressesPage() {
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
           </Link>
-          <button className="nav-icon-btn active hide-mobile" aria-label="My Account">
+          <Link href="/account" className="nav-icon-btn active hide-mobile" aria-label="My Account">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-          </button>
+          </Link>
           <button className="nav-menu-btn" aria-label="Open menu" onClick={() => setDrawerOpen(true)}>
             <span />
             <span />
@@ -80,15 +81,11 @@ export default function AccountAddressesPage() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
-          <Link href="#" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-            For Her
-          </Link>
-          <Link href="#" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-            For Him
-          </Link>
-          <Link href="#" className="drawer-item" onClick={() => setDrawerOpen(false)}>
-            For Kids
-          </Link>
+          {navLinks.map((link) => (
+            <Link href={link.href} className="drawer-item" onClick={() => setDrawerOpen(false)} key={link.label}>
+              {link.label}
+            </Link>
+          ))}
           <Link href="/account/addresses" className="drawer-item drawer-item-account" onClick={() => setDrawerOpen(false)}>
             My Addresses
           </Link>
@@ -97,15 +94,15 @@ export default function AccountAddressesPage() {
 
       <div className="page-wrap">
         <div className="mobile-tabs">
-          <button className="mobile-tab" type="button" onClick={() => { window.location.href = "/account"; }}>
+          <Link href="/account" className="mobile-tab">
             Profile
-          </button>
-          <button className="mobile-tab" type="button" onClick={() => { window.location.href = "/account/orders"; }}>
+          </Link>
+          <Link href="/account/orders" className="mobile-tab">
             Orders
-          </button>
-          <button className="mobile-tab active" type="button" onClick={() => { window.location.href = "/account/addresses"; }}>
+          </Link>
+          <Link href="/account/addresses" className="mobile-tab active">
             Addresses
-          </button>
+          </Link>
         </div>
 
         <aside className="account-sidebar">
